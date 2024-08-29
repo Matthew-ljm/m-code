@@ -17,53 +17,106 @@
             object-fit: cover;
         }
 
-        a {
+      .button-style {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px 40px;
-            background-color: #4CAF50;
-            color: white;
+            top: 30%;
+            padding: 30px 50px;
             text-decoration: none;
+            transform: translateY(-50%);
+            font-size: 200%;
         }
 
-       .text-on-top {
+        #downloadButton {
+            left: 70%;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #infoButton {
+            left: 20%;
+            background-color: yellow;
+            color: black;
+        }
+
+      .text-on-top {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             text-align: center;
-            color: #7CFC00; /* 设置为嫩绿色 */
-            font-size: 500%;
+            animation: colorChange 10s infinite;
+            font-size: 600%;
+        }
+
+        @keyframes colorChange {
+            0% {
+                color: #7CFC00;
+            }
+            50% {
+                color: blue;
+            }
+            100% {
+                color: #7CFC00;
+            }
+        }
+
+        #infoBox {
+            position: absolute;
+            top: 37%;
+            left: 5%;
+            width: 30%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            display: none;
+        }
+
+        #footerText {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            width: 90%;
+            text-align: center;
+            color: gray;
+            font-size: smaller;
         }
     </style>
 </head>
 
 <body>
-    <img src="https://image.baidu.com/search/down?tn=download&word=download&ie=utf8&fr=detail&url=https%3A%2F%2Ft8.baidu.com%2Fit%2Fu%3D2813493014%2C4048320769%26fm%3D193&thumburl=https%3A%2F%2Fimg0.baidu.com%2Fit%2Fu%3D3357337684%2C2317326565%26fm%3D253%26fmt%3Dauto%26app%3D138%26f%3DJPEG%3Fw%3D462%26h%3D259" alt="Background Image">
-    <a id="downloadButton" href="录屏软件v2.3安装包.7z.001">Download</a>
+    <img src="https://img95.699pic.com/xsj/08/po/ro.jpg%21/fh/300" alt="Background Image">
+    <a id="downloadButton" class="button-style" href="录屏软件v2.3安装包.7z.001">下载</a>
     <div class="text-on-top">M-Code</div>
+    <a id="infoButton" class="button-style">简介</a>
+    <div id="infoBox">这里显示一些简介信息</div>
+    <div id="footerText">网站底部的小文本框显示版权信息等内容</div>
     <script>
-        document.getElementById('downloadButton').addEventListener('click', function (event) {
-            event.preventDefault();
-            const firstFileUrl = this.getAttribute('href');
-            const aTag = document.createElement('a');
-            aTag.href = firstFileUrl;
-            aTag.download = '';
-            document.body.appendChild(aTag);
-            aTag.click();
-            document.body.removeChild(aTag);
-
+        document.getElementById('downloadButton').addEventListener('click', function (e) {
+            e.preventDefault();
+            const url1 = this.href;
+            const a = document.createElement('a');
+            a.href = url1;
+            a.download = '';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
             setTimeout(() => {
-                const secondFileUrl = '录屏软件v2.3安装包.7z.002';
-                const secondATag = document.createElement('a');
-                secondATag.href = secondFileUrl;
-                secondATag.download = '';
-                document.body.appendChild(secondATag);
-                secondATag.click();
-                document.body.removeChild(secondATag);
-            }, 5000);
+                const url2 = '录屏软件v2.3安装包.7z.002';
+                const b = document.createElement('a');
+                b.href = url2;
+                b.download = '';
+                document.body.appendChild(b);
+                b.click();
+                document.body.removeChild(b);
+            }, 2000);
+        });
+
+        document.getElementById('infoButton').addEventListener('click', function () {
+            const infoBox = document.getElementById('infoBox');
+            if (infoBox.style.display === 'none') {
+                infoBox.style.display = 'block';
+            } else {
+                infoBox.style.display = 'none';
+            }
         });
     </script>
 </body>
