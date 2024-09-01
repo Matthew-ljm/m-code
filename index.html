@@ -9,33 +9,13 @@
         body {
             margin: 0;
             position: relative;
+            font-family: sans-serif;
         }
 
         img {
             width: 100vw;
             height: 100vh;
             object-fit: cover;
-        }
-
-      .button-style {
-            position: absolute;
-            top: 30%;
-            padding: 30px 50px;
-            text-decoration: none;
-            transform: translateY(-50%);
-            font-size: 200%;
-        }
-
-        #downloadButton {
-            left: 70%;
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        #infoButton {
-            left: 20%;
-            background-color: yellow;
-            color: black;
         }
 
       .text-on-top {
@@ -45,7 +25,8 @@
             width: 100%;
             text-align: center;
             animation: colorChange 10s infinite;
-            font-size: 600%;
+            font-size: 4rem;
+            z-index: 2;
         }
 
         @keyframes colorChange {
@@ -60,6 +41,51 @@
             }
         }
 
+      .subtext {
+            font-size: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+       .button {
+            position: absolute;
+            top: 30%;
+            padding: 20px 40px;
+            text-decoration: none;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #downloadButton {
+            left: 70%;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #downloadButton:hover {
+            background-color: #45a049;
+        }
+
+        #infoButton {
+            left: 20%;
+            background-color: yellow;
+            color: black;
+        }
+
+        #infoButton:hover {
+            background-color: #e6d000;
+        }
+
         #infoBox {
             position: absolute;
             top: 37%;
@@ -67,7 +93,9 @@
             width: 30%;
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             display: none;
+            z-index: 2;
         }
 
         #footerText {
@@ -77,46 +105,24 @@
             width: 90%;
             text-align: center;
             color: gray;
-            font-size: smaller;
+            font-size: 0.8rem;
+            z-index: 2;
         }
     </style>
 </head>
 
 <body>
     <img src="https://img95.699pic.com/xsj/08/po/ro.jpg%21/fh/300" alt="Background Image">
-    <a id="downloadButton" class="button-style" href="录屏软件v2.3安装包.7z">下载</a>
     <div class="text-on-top">M-Code</div>
-    <a id="infoButton" class="button-style">简介</a>
+    <div class="subtext">Crafting Software, Inspiring the Future</div>
+    <a id="downloadButton" class="button" href="录屏软件v2.3安装包.7z">下载</a>
+    <a id="infoButton" class="button">简介</a>
     <div id="infoBox">这里显示一些简介信息</div>
     <div id="footerText">网站底部的小文本框显示版权信息等内容</div>
     <script>
-        document.getElementById('downloadButton').addEventListener('click', function (e) {
-            e.preventDefault();
-            const url1 = this.href;
-            const a = document.createElement('a');
-            a.href = url1;
-            a.download = '';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            setTimeout(() => {
-                const url2 = '录屏软件v2.3安装包.7z.002';
-                const b = document.createElement('a');
-                b.href = url2;
-                b.download = '';
-                document.body.appendChild(b);
-                b.click();
-                document.body.removeChild(b);
-            }, 2000);
-        });
-
         document.getElementById('infoButton').addEventListener('click', function () {
             const infoBox = document.getElementById('infoBox');
-            if (infoBox.style.display === 'none') {
-                infoBox.style.display = 'block';
-            } else {
-                infoBox.style.display = 'none';
-            }
+            infoBox.style.display = infoBox.style.display === 'none'? 'block' : 'none';
         });
     </script>
 </body>
