@@ -6,10 +6,16 @@
     <title>下载</title>
     <link rel="shortcut icon" href="download.ico" type="image/x-icon">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         img {
             width: 100vw;
             height: 100vh;
             object-fit: cover;
+            display: block;
         }
 
         button {
@@ -27,7 +33,26 @@
             transition: background-color 0.3s ease;
         }
 
+        button2 {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
         button:hover {
+            background-color: goldenrod;
+        }
+
+        button2:hover {
             background-color: goldenrod;
         }
 
@@ -42,13 +67,26 @@
             color: #FFD700;
             z-index: 2;
         }
+
+        #footerText {
+            position: absolute;
+            bottom: 2%;
+            left: 5%;
+            width: 90%;
+            text-align: center;
+            color: white;
+            font-size: 0.8rem;
+            z-index: 2;
+        }
     </style>
 </head>
 
 <body>
     <div class="text-on-top">下载</div>
     <img src="https://img95.699pic.com/xsj/08/po/ro.jpg%21/fh/300" alt="Background Image">
+    <div id="footerText">更多内容敬请期待</div>
     <button onclick="window.location.href='录屏软件v2.2安装包.exe'">录屏软件v2.2（命令行版）</button>
+    <button2 onclick="window.location.href='录屏软件v2.3安装包.7z'">录屏软件v2.3（图形化GUI版）</button>
 </body>
 
 </html>
