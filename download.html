@@ -18,11 +18,9 @@
             display: block;
         }
 
-        button {
+      .download-button {
             position: absolute;
             top: 20%;
-            left: 20%;
-            transform: translate(-50%, -50%);
             padding: 15px 30px;
             background-color: orange;
             color: white;
@@ -33,30 +31,11 @@
             transition: background-color 0.3s ease;
         }
 
-        button2 {
-            position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 15px 30px;
-            background-color: orange;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
+      .download-button:hover {
             background-color: goldenrod;
         }
 
-        button2:hover {
-            background-color: goldenrod;
-        }
-
-       .text-on-top {
+      .text-on-top {
             position: absolute;
             top: 0;
             left: 0;
@@ -85,8 +64,9 @@
     <div class="text-on-top">下载</div>
     <img src="https://img95.699pic.com/xsj/08/po/ro.jpg%21/fh/300" alt="Background Image">
     <div id="footerText">更多内容敬请期待</div>
-    <button onclick="window.location.href='录屏软件v2.2安装包.exe'">录屏软件v2.2（命令行版）</button>
-    <button2 onclick="window.location.href='录屏软件v2.3安装包.7z'">录屏软件v2.3（图形化GUI版）</button>
+    <button class="download-button" style="left:10%;" onclick="window.location.href='录屏软件v2.2安装包.exe'">录屏软件v2.2（命令行版）</button>
+    <button class="download-button" style="left:40%;" onclick="window.location.href='录屏软件v2.3安装包.7z'">录屏软件v2.3（图形化 GUI 版）</button>
+    <button class="download-button" style="left:80%;" onclick="window.location.href='备份v1.0.exe'">备份v1.0</button>
 </body>
 
 </html>
