@@ -18,7 +18,7 @@
             display: block;
         }
 
-      .download-button {
+       .download-button {
             position: absolute;
             top: 20%;
             padding: 15px 30px;
@@ -31,40 +31,11 @@
             transition: background-color 0.3s ease;
         }
 
-      .download-button2 {
-            position: absolute;
-            top: 20%;
-            padding: 15px 30px;
-            background-color: orange;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        #infoBox {
-            position: absolute;
-            top: 37%;
-            left: 10%;
-            width: 30%;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            display: none;
-            z-index: 2;
-        }
-
-      .download-button:hover {
+       .download-button:hover {
             background-color: goldenrod;
         }
 
-      .download-button2:hover {
-            background-color: goldenrod;
-        }
-
-      .text-on-top {
+       .text-on-top {
             position: absolute;
             top: 0;
             left: 0;
@@ -96,12 +67,14 @@
     <button class="download-button" style="left:10%;" onclick="window.location.href='录屏软件v2.2安装包.exe'">录屏软件v2.2（命令行版）</button>
     <button class="download-button" style="left:40%;" onclick="window.location.href='录屏软件v2.3安装包.7z'">录屏软件v2.3（图形化 GUI 版）</button>
     <button class="download-button" style="left:80%;" onclick="window.location.href='备份v1.0.exe'">备份v1.0</button>
-    <button class="download-button2" style="left:10%;top:40%;" /*onclick="window.location.href='文档转换工具v1.0.exe'">文档转换工具v1.0</button>*/
-    <div id="infoBox">即将推出</div>
+    <button id="docConvertButton" class="download-button" style="left:10%;top:40%;">文档转换工具v1.0</button>
     <script>
-        document.getElementById('download-button2').addEventListener('click', function () {
-            const infoBox = document.getElementById('infoBox');
-            infoBox.style.display = infoBox.style.display === 'none'? 'block' : 'none';
+        const docConvertButton = document.getElementById('docConvertButton');
+        docConvertButton.addEventListener('mouseover', function () {
+            this.innerHTML = '该软件正在制作中，敬请期待';
+        });
+        docConvertButton.addEventListener('mouseout', function () {
+            this.innerHTML = '文档转换工具v1.0';
         });
     </script>
 </body>
