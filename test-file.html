@@ -277,7 +277,8 @@
             const encryptedPwd = btoa(password);
             localStorage.setItem('savedPassword', JSON.stringify({
                 password: encryptedPwd,
-                expiry: expiryDate.toISOString()
+                expiry: expiryDate.toISOString(),
+                rememberDays: days
             }));
         }
         
@@ -295,7 +296,10 @@
                     return null;
                 }
                 
-                return atob(data.password);
+                return {
+                    password: atob(data.password),
+                    rememberDays: data.rememberDays || 1
+                };
             } catch (e) {
                 localStorage.removeItem('savedPassword');
                 return null;
@@ -391,9 +395,10 @@
         window.addEventListener('load', function() {
             showLockMessage();
             
-            const savedPassword = getSavedPassword();
-            if (savedPassword) {
-                document.getElementById('password-input').value = savedPassword;
+            const savedData = getSavedPassword();
+            if (savedData) {
+                document.getElementById('password-input').value = savedData.password;
+                document.getElementById('remember-select').value = savedData.rememberDays.toString();
                 const lockStatus = getLockStatus();
                 if (!lockStatus.isLocked) {
                     handleVerification();
